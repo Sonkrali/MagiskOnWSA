@@ -49,7 +49,7 @@ on:
         type: choice
         options:
         - magisk
-        - none
+        - pico
 
 jobs:
   matrix:
@@ -565,6 +565,8 @@ jobs:
           }
           Write-Host "All Done\`r\`nPress any key to exit"
           \$null = \$Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown')
+              if (\$?) {
+                  Finish
           EOF
       - name: Generate artifact name
         run: |
